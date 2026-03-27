@@ -2,7 +2,6 @@ import streamlit as st
 from pypdf import PdfReader
 import ollama
 
-# --- UTILS ---
 def extract_text_from_file(uploaded_file):
     if uploaded_file is None:
         return ""
@@ -60,24 +59,18 @@ def stream_llm_response(user_content, system_prompt, model="llama3"):
     except Exception as e:
         yield f"Error connecting to Ollama: {str(e)}"
 
-# --- PAGE CONFIG ---
 st.set_page_config(page_title="GRAMMERLY-LITE")
 
-# --- BULLETPROOF CSS ---
 st.markdown("""
     <style>
    
-    /* 3. GENERAL TEXT COLOR */
      .stApp ,h1, h2, h3, h4, h5, h6, p, label, span { color: #ACBF69 !important; }
 
-    /* 4. TEXT INPUT BOXES */
     .stTextArea textarea {
         font-size: 16px !important;
         line-height: 1.5 !important;
         border-radius: 8px !important;
     }
-
-    /* 5. BUTTONS (Tabs) */
     div.stButton > button {
         background-color: #373E02 !important;
         color: #ffffff !important;
@@ -90,7 +83,6 @@ st.markdown("""
         color: #ffffff !important;
     }
 
-    /* 6. FILE UPLOADER FIX */
     [data-testid="stFileUploadDropzone"] {
         background-color: #ffffff !important;
         border-color: #808000 !important;
@@ -101,11 +93,9 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- STATE MANAGEMENT ---
 if 'user_text' not in st.session_state: st.session_state.user_text = ""
 if 'app_mode' not in st.session_state: st.session_state.app_mode = None
 
-# --- NAVIGATION ---
 if st.session_state.app_mode is None:
     st.title("AN ATTEMPT TO MAKE GRAMMERLY-LITE")
     st.markdown("### Choose your tool to begin:")
@@ -130,18 +120,17 @@ with st.sidebar:
 st.header(f"Mode: {st.session_state.app_mode}")
 
 if st.session_state.app_mode in ["Summarization", "Grammar Correction"]:
-    # File Uploader
+    
     uploaded_file = st.file_uploader("Upload a document (optional)", type=["txt", "pdf"])
     
     if uploaded_file:
-        # Check if this is a newly uploaded file to prevent infinite reruns
+    
         if st.session_state.get("current_file") != uploaded_file.name:
-            # Directly update the session state key tied to the text area
             st.session_state.user_text = extract_text_from_file(uploaded_file)
             st.session_state.current_file = uploaded_file.name
-            st.rerun() # Force UI to refresh and inject the text
+            st.rerun()
 
-    # Text Area (Note: using 'key' instead of 'value')
+    
     input_text = st.text_area("Input Text", key="user_text", height=300)
     if st.button("Process Text", type="primary"):
         if not input_text.strip(): st.warning("Please enter text.")
