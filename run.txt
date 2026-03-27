@@ -1,0 +1,23 @@
+STEPS TO RUN GRAMMARLY-LITE
+==========================
+
+1. INSTALL OLLAMA:
+   Download and install Ollama from https://ollama.com/
+
+2. PULL THE AI MODEL:
+   Open your terminal/command prompt and run:
+   ollama pull llama3
+
+3. INSTALL PYTHON DEPENDENCIES:
+   Run the following command in your terminal:
+   pip install streamlit pypdf ollama
+
+4. RUN THE APPLICATION:
+   In your terminal, navigate to the project folder and run:
+   streamlit run app.py
+
+5. ACCESS THE APP:
+   The app will automatically open in your default browser.
+   If not, go to: http://localhost:8501
+
+NOTE: Make sure the Ollama application is running in the background before starting the script.
