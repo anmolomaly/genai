@@ -1,8 +1,8 @@
-# Grammarly-Lite 📝
+# A try to make grammerly lite 
 
-Grammarly-Lite is a lightweight, AI-powered writing assistant built with Streamlit and Ollama. It provides a suite of tools for summarization, grammar correction, and creative content generation, all running locally on your machine.
+What we have cerated is a lightweight, AI-powered writing assistant built with Streamlit and Ollama. It provides a suite of tools for summarization, grammar correction, and creative content generation, all running locally on your machine.
 
-## 🚀 Features
+## Features
 
 - **Grammar Correction:** Fix spelling, punctuation, and grammar without changing the original intent.
 - **Text Summarization:** Condense long articles or documents into short, medium, or detailed summaries.
@@ -22,7 +22,7 @@ Before running the application, ensure you have the following installed:
    ollama pull llama3
    ```
 
-## 📦 Installation
+## Installation
 
 1. Clone or download this repository.
 2. Navigate to the project directory.
@@ -31,7 +31,7 @@ Before running the application, ensure you have the following installed:
    pip install streamlit pypdf ollama
    ```
 
-## 🏃 How to Run
+## How to Run
 
 1. Start the Ollama server (usually runs automatically after installation).
 2. Run the Streamlit application:
@@ -40,15 +40,13 @@ Before running the application, ensure you have the following installed:
    ```
 3. Open your browser to the local URL provided (typically `http://localhost:8501`).
 
-## 📁 Project Structure
+## Project Structure
 
 - `app.py`: The main application and UI logic.
 - `llm_engine.py`: Functions for communicating with the Ollama API.
 - `pdfreader.py`: Utility for extracting text from PDF and TXT files.
 - `llm.py`: Development script for the LLM engine.
 
-## 🎨 UI Aesthetics
+## UI Aesthetics
 The app features a custom "Olive/Dark" theme with glassmorphism-inspired elements for a premium user experience.
 
----
-*Built with ❤️ using Streamlit and Ollama.*
