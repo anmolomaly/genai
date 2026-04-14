@@ -1,4 +1,4 @@
-# A try to make grammerly lite 
+# WriteFlow AI
 
 What we have cerated is a lightweight, AI-powered writing assistant built with Streamlit and Ollama. It provides a suite of tools for summarization, grammar correction, and creative content generation, all running locally on your machine.
 
