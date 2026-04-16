@@ -97,7 +97,7 @@ if 'user_text' not in st.session_state: st.session_state.user_text = ""
 if 'app_mode' not in st.session_state: st.session_state.app_mode = None
 
 if st.session_state.app_mode is None:
-    st.title("AN ATTEMPT TO MAKE GRAMMERLY-LITE")
+    st.title("WriteFlow AI")
     st.markdown("### Choose your tool to begin:")
     col1, col2, col3 = st.columns(3)
     with col1:
