@@ -36,7 +36,7 @@ Before running the application, ensure you have the following installed:
 1. Start the Ollama server (usually runs automatically after installation).
 2. Run the Streamlit application:
    ```bash
-   streamlit run app.py
+   python -m streamlit run app.py
    ```
 3. Open your browser to the local URL provided (typically `http://localhost:8501`).
 
