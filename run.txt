@@ -4,9 +4,9 @@ STEPS TO RUN GRAMMARLY-LITE
 1. INSTALL OLLAMA:
    Download and install Ollama from https://ollama.com/
 
-2. PULL THE AI MODEL:
+2. PULL THE AI MODEL (Llama 3.2 is recommended):
    Open your terminal/command prompt and run:
-   ollama pull llama3
+   ollama pull llama3.2
 
 3. INSTALL PYTHON DEPENDENCIES:
    Run the following command in your terminal:

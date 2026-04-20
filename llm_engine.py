@@ -13,14 +13,23 @@ def get_system_prompt(app_mode, output_length, current_tone):
             return f"{base_prompt} Provide a detailed summary of the following text, covering all key points."
 
     elif app_mode == "Grammar Correction":
-        return f"{base_prompt} Correct any grammar, spelling, and punctuation errors in the following text. Do not change the meaning or intent."
+        return f'''{base_prompt} You are a strict grammar and spelling correction tool.
+        
+        TASK:
+        - Correct all grammar, spelling, and punctuation errors.
+        - Maintain the original meaning and intent exactly.
+        - DO NOT provide explanations, headers, or notes.
+        - DO NOT be conversational.
+        - OUTPUT ONLY THE CORRECTED TEXT.'''
 
     elif app_mode == "Creative Generation":
-        return f'''{base_prompt} Generate creative content based on the following prompt. Ensure the response matches the specified tone and is appropriate for the given output length request (though creative generation can be more flexible).
-If output length is Short, aim for a few sentences. If Medium, a paragraph or two. If Long, a more detailed piece of writing.'''
-    return base_prompt # Fallback
+        return f'''{base_prompt} Generate creative content based on the following prompt. 
+        Length target: {output_length}. 
+        Style/Tone: {current_tone}.'''
+    
+    return base_prompt
 
-def stream_llm_response(user_content, system_prompt, model="llama3"):
+def stream_llm_response(user_content, system_prompt, model="llama3.2"):
     """Streams responses from the Ollama chat model."""
     try:
         response = ollama.chat(
@@ -32,6 +41,7 @@ def stream_llm_response(user_content, system_prompt, model="llama3"):
             stream=True
         )
         for chunk in response:
-            yield chunk['message']['content']
+            if 'message' in chunk and 'content' in chunk['message']:
+                yield chunk['message']['content']
     except Exception as e:
-        yield f"Error connecting to Ollama: {str(e)}. Please ensure Ollama server is running and the model '{model}' is available."
+        yield f"⚠️ Error: {str(e)}. (Model: {model})"

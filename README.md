@@ -8,8 +8,8 @@ Grammarly-Lite is a lightweight, AI-powered writing assistant built with Streaml
 - **Text Summarization:** Condense long articles or documents into short, medium, or detailed summaries.
 - **Creative Generation:** Generate stories, emails, or marketing copy based on custom prompts.
 - **File Support:** Upload `.pdf` or `.txt` files to extract and process text directly.
-- **Local AI:** Powered by Ollama (`llama3`), ensuring your data stays private and local.
-- **Customizable:** Adjust output length and tone/style to suit your needs.
+- **Local AI:** Powered by Ollama (supports `llama3.2`, `llama3.1`, and `llama3`), ensuring your data stays private and local.
+- **Modern UI:** Premium design with interactive cards and intuitive navigation.
 
 ## 🛠️ Prerequisites
 
@@ -17,9 +17,9 @@ Before running the application, ensure you have the following installed:
 
 1. **Python 3.8+**
 2. **Ollama:** [Download and install Ollama](https://ollama.com/)
-3. **Pull the Llama3 Model:**
+3. **Pull the AI Model (Llama 3.2 is recommended):**
    ```bash
-   ollama pull llama3
+   ollama pull llama3.2
    ```
 
 ## 📦 Installation
@@ -36,7 +36,7 @@ Before running the application, ensure you have the following installed:
 1. Start the Ollama server (usually runs automatically after installation).
 2. Run the Streamlit application:
    ```bash
-   python -m streamlit run app.py
+   streamlit run app.py
    ```
 3. Open your browser to the local URL provided (typically `http://localhost:8501`).
 
@@ -45,10 +45,9 @@ Before running the application, ensure you have the following installed:
 - `app.py`: The main application and UI logic.
 - `llm_engine.py`: Functions for communicating with the Ollama API.
 - `pdfreader.py`: Utility for extracting text from PDF and TXT files.
-- `llm.py`: Development script for the LLM engine.
 
 ## 🎨 UI Aesthetics
-The app features a custom "Olive/Dark" theme with glassmorphism-inspired elements for a premium user experience.
+The app features a modern, clean interface with a custom typography and responsive design for a premium writing experience.
 
 ---
 *Built with ❤️ using Streamlit and Ollama.*
