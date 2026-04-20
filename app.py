@@ -71,18 +71,22 @@ st.markdown("""
         line-height: 1.5 !important;
         border-radius: 8px !important;
     }
-    div.stButton > button {
-        background-color: #373E02 !important;
-        color: #ffffff !important;
-        border-radius: 6px !important;
-        font-weight: bold !important;
-        border: none !important;
-    }
-    div.stButton > button:hover {
-        background-color: #556B2F !important;
-        color: #ffffff !important;
-    }
 
+div.stButton > button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #fff !important;
+    border-radius: 10px !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+    font-weight: 500 !important;
+    padding: 10px 20px !important;
+}
+
+div.stButton > button:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+    
     [data-testid="stFileUploadDropzone"] {
         background-color: #ffffff !important;
         border-color: #808000 !important;
